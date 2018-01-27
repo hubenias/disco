@@ -15,3 +15,5 @@ items = Item.create([{ name: 'Ax', price: 120.5 },
                      { name: 'Sopilka', price: 53.0 },
                      { name: 'Bible', price: 200.0 },
                      { name: 'Boots', price: 105.3 }])
+
+Order.create(user: users.first)
