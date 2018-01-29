@@ -8,6 +8,9 @@ module Discount
 
     # such notation means: ItemsQty discount has precedence over UserLocation
     # i.e. only ItemsQty will be applied if they all are applicable
+    # according to the task following line should be used though some discounts
+    # weren't implemented:
+    # DISCOUNT_PRIORITIES = { 'NewYear' => ['UserLocation', 'PurchaseHours'] }.freeze
     DISCOUNT_PRIORITIES = { 'ItemsQty' => ['UserLocation'] }.freeze
     class << self
       def calculate(order)
