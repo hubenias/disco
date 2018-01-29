@@ -37,7 +37,7 @@ RSpec.describe Discount::ItemsQty do
           OrderLine.create!(order: order, item: Item.last, qty: disc_qty + 1)
         end
         it 'calculates discount properly' do
-          line = order.order_lines.first
+          line = order.order_lines.reload.first
           line2 = order.order_lines.last
           discounted_amount = (line.price + line2.price) * subject::PERCENTAGE
           expect(subject.calculate(order)).to eq(discounted_amount)
