@@ -18,7 +18,7 @@ module Discount
           applicable_discounts[name] = amount unless amount.zero?
         end
         discounts_to_use = prioritize(applicable_discounts)
-        discounts_to_use.values.reduce(:+)
+        discounts_to_use.values.reduce(:+) || 0
       end
 
       private

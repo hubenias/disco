@@ -14,6 +14,13 @@ RSpec.describe Discount::Manager do
       order.created_at = order_time
       order
     end
+
+    context 'for empty order' do
+      it 'returns 0' do
+        expect(subject.calculate(Order.new)).to eq(0)
+      end
+    end
+
     describe 'runs all discounts' do
       it 'runs ItemsQty' do
         allow(Discount::ItemsQty).to receive(:calculate).and_return(123.45)
